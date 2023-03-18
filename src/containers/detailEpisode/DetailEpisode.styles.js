@@ -17,16 +17,26 @@ export const StyledContainerRight = styled.div`
   }
 `;
 
-export const StyledTitleDetail = styled.span`
+export const StyledContainerEpisode = styled.span`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledTitleEpisode = styled.span`
   font-size: 30px;
   font-weight: 700;
   padding: 0px;
+  margin-bottom: 10px;
 `;
 
-export const StyledTitleTable = styled.span`
-  color: ${({ theme }) => theme.color.blueText};
-  cursor: pointer;
-  :hover {
-    text-decoration: underline !important;
+export const StyledDescriptionEpisode = styled.span`
+  font-style: italic;
+`;
+
+export const StyledAudio = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  & audio {
+    width: 100%;
   }
 `;

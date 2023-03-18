@@ -14,6 +14,7 @@ import {
 } from "./Home.styles";
 import { PAGES } from '@routes/constants';
 import { InputText } from 'primereact/inputtext';
+import ScrollTop from '@components/ui/scrollTop/ScrollTop';
 import { Card } from 'primereact/card';
 import { getListPodcast } from '@services/axios_service/api';
 
@@ -63,25 +64,28 @@ const Home = ({ podcastsReducer, resultPodcastsRequest }) => {
   }
 
   return (
-    <StyledPrimaryContainer>
-      <StyledContainerSearch>
-        <StyledSearch>
-          <StyledNumResultSearch>{numListPodcastSearch}</StyledNumResultSearch>
-          <InputText type="text" value={inputSearchText} onChange={handleInputSearchText} placeholder="Filter podscats..." />
-        </StyledSearch>
-      </StyledContainerSearch>
-      <StyledContainerCards>
-        {listPodcast && listPodcast.map((elem, pos) => (
-          <StyledCard key={pos} onClick={() => handleCardClick(elem.id)}>
-            <Card style={{ width: '280px', height: '260px', margin: '2em' }}>
-              <StyledImg src={elem.artworkUrl100} />
-              <StyledTittleAlbum className="m-0" style={{lineHeight: '1.5'}}>{elem.name}</StyledTittleAlbum>
-              <p className="m-0" style={{lineHeight: '1.5'}}>Author: {elem.artistName}</p>
-            </Card>
-          </StyledCard>
-        ))}
-      </StyledContainerCards>
-    </StyledPrimaryContainer>
+    <>
+      <StyledPrimaryContainer>
+        <StyledContainerSearch>
+          <StyledSearch>
+            <StyledNumResultSearch>{numListPodcastSearch}</StyledNumResultSearch>
+            <InputText type="text" value={inputSearchText} onChange={handleInputSearchText} placeholder="Filter podscats..." />
+          </StyledSearch>
+        </StyledContainerSearch>
+        <StyledContainerCards>
+          {listPodcast && listPodcast.map((elem, pos) => (
+            <StyledCard key={pos} onClick={() => handleCardClick(elem.id)}>
+              <Card style={{ width: '280px', height: '260px', margin: '2em' }}>
+                <StyledImg src={elem.artworkUrl100} />
+                <StyledTittleAlbum className="m-0" style={{lineHeight: '1.5'}}>{elem.name}</StyledTittleAlbum>
+                <p className="m-0" style={{lineHeight: '1.5'}}>Author: {elem.artistName}</p>
+              </Card>
+            </StyledCard>
+          ))}
+        </StyledContainerCards>
+      </StyledPrimaryContainer>
+      <ScrollTop />
+    </>
   );
 }
 

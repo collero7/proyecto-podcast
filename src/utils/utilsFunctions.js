@@ -17,3 +17,7 @@ export const getFormatDate = (dateInput) => {
   let date = new Date(dateInput);
   return `${agregarCeroSiEsNecesario(date.getDay())}/${agregarCeroSiEsNecesario(date.getMonth())}/${date.getFullYear()}`;
 };
+
+export const goUp = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+}

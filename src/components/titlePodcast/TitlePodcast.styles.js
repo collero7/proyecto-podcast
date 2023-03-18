@@ -14,11 +14,13 @@ export const StyledContainerImg = styled.div`
 export const StyledImg = styled.img`
   width: 200px;
   height: 200px;
+  cursor: pointer;
 `;
 
 export const StyledTitle = styled.span`
   font-weight: 700;
   margin-top: 30px;
+  cursor: pointer;
 `;
 
 export const StyledSubTitle = styled.span`

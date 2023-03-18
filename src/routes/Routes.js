@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 
 import Home from '@containers/home/Home';
 import DetailPodcast from '@containers/detailPodcast/DetailPodcast';
+import DetailEpisode from '@containers/detailEpisode/DetailEpisode';
 import NotFound from '@containers/notFound/NotFound';
 
 
@@ -21,6 +22,7 @@ export default function Routes() {
       <Switch>
         <PrivateRoute exact path={PAGES.HOME} component={Home} />
         <PrivateRoute exact path={PAGES.DETAIL} component={DetailPodcast} />
+        <PrivateRoute exact path={PAGES.EPISODE} component={DetailEpisode} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
