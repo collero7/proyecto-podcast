@@ -1,26 +1,58 @@
-## Available Scripts
+# Prueba Técnica
 
-In the project directory, you can run:
+La prueba consiste en la obtención de datos de un API REST para visualizar información sobre podcast.
 
-### `npm start:dev`
+## Comenzando 🚀
 
-Runs the app in the development mode.\
-Open [http://localhost:9000](http://localhost:9000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Estas instrucciones permiten obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de pruebas._
 
 
-### `npm run build` fails to minify
+### Pre-requisitos 📋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_Es necesaria la instalación de un servidor web, como por ejemplo XAMPP_
+
+
+### Instalación 🔧
+
+_Para tener un entorno de desarrollo en ejecución debemos seguir los siguientes pasos_
+
++ Tener una instalación de XAMPP
++ Un navegador web
++ Conexión a internet
+
+_Se deben dejar todos los ficheros de la prueba en una carpeta dentro del directorio web del servidor. Posterior a esto debemos abrir el navegador
+y dirigirnos a la URL donde está alojado dicho proyecto y navegar hasta la página index.html_
+
+_Directorio web: C:\xampp\htdocs\proyecto_
+
+_URL del navegador: localhost/proyecto_
+
+## Script de ejecución 📦
+
++ yarn start:dev (desarrollo local)
+
+Ejecuta la aplicación en el modo de desarrollo.
+Abra http://localhost:9000 para verlo en su navegador.
+La página se volverá a cargar cuando realice cambios.
+También puede ver errores de invocación a servicios en la consola
+
++ yarn build (producción)
+
+Crea la aplicación para la producción en la carpeta de compilación.
+Empaqueta correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
+La compilación se minimiza y los nombres de archivo incluyen los hashes.
+
+
+## Herramientas 🛠️
+
+_Para el desarrollo de esta prueba se ha utilizado las siguientes herramientas_
+
+* Visual Studio Code- Editor de texto y código fuente
+* Chrome - Navegador web
+
+
+## Autor ✒️
+
+* **Cristopher Ollero Ortiz**
+
+

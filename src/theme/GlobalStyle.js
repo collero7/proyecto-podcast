@@ -40,28 +40,12 @@ body {
 
 
 // ***** Estilos globales de componentes de PrimeReact ***** //
-
-.p-dialog {
-  max-width: 95%;
-}
-
 .p-scrolltop {
   z-index: 1 !important;
 }
 
-.p-dropdown-panel { 
-  z-index: 1002 !important;
-}
-
-//Clase que referencia al componente Input, al label flotante
-.p-float-label input:focus ~ label, .p-float-label input.p-filled ~ label, .p-float-label textarea:focus ~ label, .p-float-label textarea.p-filled ~ label, .p-float-label .p-inputwrapper-focus ~ label, .p-float-label .p-inputwrapper-filled ~ label {
-  left: 0 !important;
-  font-size: 14px !important;
-}
-
-//Clase que referencia al componente DatePicker
-.p-datepicker table th {
-  text-align: center !important;
+.p-progress-spinner-circle {
+  stroke: #0056ac !important;
 }
 
 // ***** Fin estilos globales de componentes de PrimeReact ***** //

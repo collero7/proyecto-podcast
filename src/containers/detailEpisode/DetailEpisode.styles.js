@@ -37,6 +37,7 @@ export const StyledAudio = styled.div`
   margin-top: 20px;
   width: 100%;
   & audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(20%);
     width: 100%;
   }
 `;

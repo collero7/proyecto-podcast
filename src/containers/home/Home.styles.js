@@ -59,5 +59,9 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledTittleAlbum = styled.p`
-    font-weight: 700;
+  font-weight: 700;
+`;
+
+export const StyledAuthor = styled.p`
+
 `;

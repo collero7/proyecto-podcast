@@ -9,7 +9,7 @@ export default function NotFound() {
     <StyledContainerText>
       <span>
         <StyledIcon icon={faExclamationTriangle} />
-        Pagina no encontrada
+        Página no encontrada
       </span>
     </StyledContainerText>
   );

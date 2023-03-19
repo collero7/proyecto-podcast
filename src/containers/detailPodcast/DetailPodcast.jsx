@@ -9,13 +9,14 @@ import {
   StyledTitleDetail,
   StyledTitleTable
 } from "./DetailPodcast.styles";
-import { PAGES } from '@routes/constants';
+import useFullPageLoader from '@hooks/useFullPageLoader';
 import { getDetailPodcast } from '@services/axios_service/api';
 import TitlePodcast from '@components/titlePodcast/TitlePodcast';
 import ScrollTop from '@components/ui/scrollTop/ScrollTop';
 import { Card } from 'primereact/card';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { PAGES } from '@routes/constants';
 import { getFormatDate, milisecondssToMinutesYSeconds, goUp } from '@utils/utilsFunctions';
 
 const fetchRequestGetDetailPodcast = (_id) => {
@@ -24,32 +25,36 @@ const fetchRequestGetDetailPodcast = (_id) => {
   })
 }
 
-
 const DetailPodcast = ({ match, podcastDetailReducer, resultPodcastDetailRequest }) => {
 
   const history = useHistory();
   const idPodcast = match.params.id;
+  const [loader, showLoader, hideLoader] = useFullPageLoader();
   const [detailPodcast, setDetailPodcast] = useState(podcastDetailReducer ? podcastDetailReducer : []);
 
   useEffect(() => {
-    // Se verifica si tenemos datos almacenados en el Storage de redux y se consulta si hemos superado la fecha de 1 día.
+    goUp();
+    // Se verifica si tenemos datos almacenados en el Storage de redux, se consulta si hemos superado 
+    // la fecha de 1 día y se verifica si el Id del podcast es diferente al ID del podcast pasado por la url.
+    // Si no se cumple alguna de las condiciones anteriores, se vuelve a realizar una llamada al servicio para
+    // obtener el detalle del podcast.
     if(!podcastDetailReducer || podcastDetailReducer[0]?.collectionId !== parseInt(idPodcast) || (new Date(parseInt(sessionStorage.getItem('dateFetchDetailPodcast'))) <= new Date())) {
       getRequestGetDetailPodcast();
     }
-    goUp();
   },[]);
 
   const getRequestGetDetailPodcast = () => {
+    showLoader();
     fetchRequestGetDetailPodcast(idPodcast).then((resp) => {
       setDetailPodcast(resp.results);
       resultPodcastDetailRequest(resp.results);
-      console.log("DETAIL PODSCAT", resp.results);
-      //Se almacena la fecha actual + 1 día
+
+      //Se almacena la fecha actual + 1 día en la sesión.
       sessionStorage.setItem('dateFetchDetailPodcast', new Date().setDate(new Date().getDate() + 1));
-    }).catch(e => {
-      console.error("Error al invocar al servicio", e.response);
+    }).catch((e) => {
+      console.error("**Error al invocar al servicio de detalle", e.response);
       history.push(PAGES.HOME);
-    });
+    }).finally(() => hideLoader());
   }
 
   const handleGoToEpisode = (_uid) => {
@@ -57,10 +62,8 @@ const DetailPodcast = ({ match, podcastDetailReducer, resultPodcastDetailRequest
   }
 
   const titleBodyTemplate = (rowData) => {
-    return (
-      <StyledTitleTable onClick={() => handleGoToEpisode(rowData.trackId)}>{rowData.trackName}</StyledTitleTable>
-    );
-}
+    return <StyledTitleTable onClick={() => handleGoToEpisode(rowData.trackId)}>{rowData.trackName}</StyledTitleTable>;
+  }
 
   return (
     <>
@@ -82,6 +85,7 @@ const DetailPodcast = ({ match, podcastDetailReducer, resultPodcastDetailRequest
         </StyledContainerRight>
       </StyledPrimaryContainer>
       <ScrollTop />
+      {loader}
     </>
   );
 }

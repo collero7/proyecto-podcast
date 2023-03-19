@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { 
-  StyledContainerCard,
-  StyledContainerImg,
-  StyledImg,
-  StyledTitle,
-  StyledSubTitle
-} from "./TitlePodcast.styles";
+import { StyledContainerCard, StyledContainerImg, StyledImg, StyledTitle, StyledSubTitle } from "./TitlePodcast.styles";
 import { PAGES } from '@routes/constants';
 import { Card } from 'primereact/card';
 

@@ -7,7 +7,6 @@ const packageProject = require('./package.json');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
@@ -74,13 +73,6 @@ module.exports = merge(common, {
           filename: './assets/fonts/[hash][ext]',
         },
       },
-      // {
-      //   test: /\.(jpg|png|gif|svg|mp4|webm|ico)$/,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: './assets/[name].[ext]',
-      //   },
-      // },
       {
         test: /\.(woff(2)?|ttf|eot|otf)$/,
         type: 'asset/resource',
@@ -100,14 +92,7 @@ module.exports = merge(common, {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['**/app.*'],
-    }),
-    new CopyWebpackPlugin(
-      {
-        patterns: [
-          { from: path.resolve(__dirname, 'public/locale'), to: 'locale' }
-        ]
-      }
-    ),
+    })
   ],
   optimization: {
     minimizer: [
