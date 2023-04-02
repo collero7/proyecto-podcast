@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { display } from '@theme/sizes';
 
 
 export const StyledPrimaryContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0px 0px;
+  @media (max-width: ${display.tablet}) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledContainerLeft = styled.div`

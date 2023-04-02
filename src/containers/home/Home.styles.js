@@ -12,7 +12,7 @@ export const StyledContainerSearch = styled.div`
 `;
 
 export const StyledSearch = styled.div`
-  width: 25%;
+  width: 350px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,8 +34,8 @@ export const StyledNumResultSearch = styled.span`
 export const StyledContainerCards = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   height: 80%;
 `;

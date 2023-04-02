@@ -7,26 +7,6 @@ La prueba consiste en la obtención de datos de un API REST para visualizar info
 _Estas instrucciones permiten obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de pruebas._
 
 
-### Pre-requisitos 📋
-
-_Es necesaria la instalación de un servidor web, como por ejemplo XAMPP_
-
-
-### Instalación 🔧
-
-_Para tener un entorno de desarrollo en ejecución debemos seguir los siguientes pasos_
-
-+ Tener una instalación de XAMPP
-+ Un navegador web
-+ Conexión a internet
-
-_Se deben dejar todos los ficheros de la prueba en una carpeta dentro del directorio web del servidor. Posterior a esto debemos abrir el navegador
-y dirigirnos a la URL donde está alojado dicho proyecto y navegar hasta la página index.html_
-
-_Directorio web: C:\xampp\htdocs\proyecto_
-
-_URL del navegador: localhost/proyecto_
-
 ## Script de ejecución 📦
 
 + yarn start:dev (desarrollo local)
